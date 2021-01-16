@@ -19,13 +19,16 @@ API:
       localhost:8000/signout
       get
   json-patch:
+    require signin
     localhost:8000/jsonPatch
     get
   address: 
+    require signin
     localhost:8000/address
     put
       body: {address}
   image-thumbnail
+    require signin
     localhost:8000/upload
     post
       body: {url}
