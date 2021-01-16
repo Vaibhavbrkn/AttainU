@@ -4,7 +4,8 @@ const path = require('path');
 const router = express.Router()
 
 const { upload} = require('../controllers/image')
+const { requireSignin, authMiddleware } = require("../controllers/auth");
 
-router.post('/upload' , upload)
+router.post('/upload' , requireSignin, authMiddleware , upload)
 
 module.exports = router;
